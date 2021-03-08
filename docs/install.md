@@ -27,6 +27,9 @@ $ pip install -r requirements.txt
 $ export PORT=5000
 $ export FLASK_ENV=development
 
+# Install pre-commit
+$ pre-commit install  
+
 # Run application
 $ python run.py
 ```
@@ -41,6 +44,10 @@ $ git clone https://github.com/Fotographia/fotographia-editor.git
 
 # Navigate to the project's folder
 $ cd fotographia-editor
+
+# Install pre-commit
+$ pip install pre-commit==2.11.0
+$ pre-commit install  
 
 # Run docker
 $ docker-compose up -d --build 
