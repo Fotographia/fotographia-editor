@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div class="landpage" align="center">
-      I am a beautiful landpage.
-  </div>
+  <section class="upload-image">
+    <form method="POST">
+      <input type="file" name="file" id="imageUploadInput" />
+    </form>
+    <div id="imageUploadError"></div>
+  </section>
+  <script src="{{url_for('static', filename='js/uploadImage.js')}}"></script>
 {% endblock %}
