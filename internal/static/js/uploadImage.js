@@ -1,9 +1,9 @@
 const session_id = Math.random().toString(36).substr(2, 9) 
 localStorage.setItem('session_id', session_id)
 
-var imageUploadInput = document.getElementById('imageUploadInput')
+const imageUploadInput = document.getElementById('imageUploadInput')
 
-imageUploadInput.addEventListener('change', function(event) {
+imageUploadInput.addEventListener('change', (event) => {
     event.preventDefault()
 
     const file = event.target.files[0]
