@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Fotographia // Home</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="headline">
+            <h1 class="headline__big">Welcome to Fotographia</h1>
+            <p class="headline__small">A simple yet scientific open source image editor</p>
+            <button id="start-btn" class="btn"><a href="#">Start here</a></button>
+        </div>
+        <div class="image">
+            <svg width="270" height="270" viewBox="0 0 270 270" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0)">
+            <path d="M36.3667 154.921C16.3144 154.921 0 171.235 0 191.288V233.633C0 253.686 16.3144 270 36.3672 270C56.42 270 72.7339 253.686 72.7339 233.633V191.288C72.7339 171.235 56.4195 154.921 36.3667 154.921ZM51.6396 233.633C51.6396 242.054 44.7884 248.906 36.3667 248.906C27.9455 248.906 21.0938 242.054 21.0938 233.633V191.288C21.0938 182.866 27.9455 176.015 36.3672 176.015C44.7889 176.015 51.6401 182.866 51.6396 191.288V233.633Z" fill="#EAEAEA"/>
+            <path d="M135 0C114.947 0 98.6328 16.3144 98.6328 36.3672V233.633C98.6328 253.686 114.947 270 135 270C155.053 270 171.367 253.686 171.367 233.633V36.3672C171.367 16.3144 155.053 0 135 0ZM150.273 233.633C150.273 242.055 143.422 248.906 135 248.906C126.578 248.906 119.727 242.055 119.727 233.633V36.3672C119.727 27.945 126.578 21.0938 135 21.0938C143.422 21.0938 150.273 27.945 150.273 36.3672V233.633Z" fill="#EAEAEA"/>
+            <path d="M233.633 77.4604C213.581 77.4604 197.266 93.7749 197.266 113.828V233.633C197.266 253.686 213.581 270 233.633 270C253.686 270 270 253.686 270 233.633V113.828C270 93.7749 253.686 77.4604 233.633 77.4604ZM248.906 233.633C248.906 242.055 242.054 248.907 233.633 248.907C225.212 248.907 218.36 242.055 218.36 233.633V113.828C218.36 105.405 225.212 98.5542 233.633 98.5542C242.054 98.5542 248.906 105.405 248.906 113.828V233.633Z" fill="#EAEAEA"/>
+            </g>
+            <defs>
+            <clipPath id="clip0">
+            <rect width="270" height="270" fill="white"/>
+            </clipPath>
+            </defs>
+            </svg>
+        </div>
+
+        <!-- The Modal -->
+        <div id="start-modal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Choose an image</h3>
+            <form class="start-form" method="POST">
+                <input type="file" name="file" id="start-upload"/>
+            </form>
+            <div id="start-upload-error"></div>
+            <button id="start-upload-btn" class="btn"><a href="#">Upload</a></button>
+          </div>
+
+        </div> 
+    </div>
+    <script src="{{ url_for('static', filename='js/start.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Fotographia // Editor</title>
+{% endblock %}
+
+{% block content %}
+    <nav class="bar">
+        <ul class="container--editor bar__list">
+            <li class="bar__item project-name">This is hardcoded.png</li>
+            <li class="bar__item"><button id="btn-export" class="btn">Export</button></li>
+        </ul>
+    </nav>
+    <hr> <!-- White-line -->
+    <div class="editor">
+        <div id="panzoom">
+            <img src="{{ url_for('static', filename=filename) }}"/>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/editor.js') }}"></script>
+{% endblock %}
