@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for, request, jsonify
 from utils.validate_filename import validate_filename
+from utils.get_resolution import get_resolution
 import json
 import os
 
@@ -50,6 +51,18 @@ def upload():
         return jsonify("Image Uploaded Successfully."), 200
     else:
         return jsonify("An error occured!"), 400
+
+
+@app.route("/api/resolution")
+def resolution():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
+    resolution = get_resolution(path)
+
+    return jsonify(resolution), 200
 
 
 # Main

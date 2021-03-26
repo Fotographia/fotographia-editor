@@ -16,6 +16,12 @@
         <div id="panzoom">
             <img src="{{ url_for('static', filename=filename) }}"/>
         </div>
+        <p>
+            Resolution: 
+            <span id="width"></span>
+            x
+            <span id="height"></span>
+        </p>
     </div>
 
     <script src="{{ url_for('static', filename='js/editor.js') }}"></script>
