@@ -14,15 +14,14 @@
     <hr> <!-- White-line -->
     <div class="editor">
         <div id="panzoom">
-            <img src="{{ url_for('static', filename=filename) }}"/>
+            <img id="img" src="{{ url_for('static', filename=filename) }}"/>
         </div>
-        <p>
-            Resolution: 
-            <span id="width"></span>
-            x
-            <span id="height"></span>
-        </p>
     </div>
+    {% include 'includes/resolution.html' %}
+    {% include 'includes/resize.html' %}
 
     <script src="{{ url_for('static', filename='js/editor.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/helpers.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/resolution.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/resize.js') }}"></script>
 {% endblock %}
