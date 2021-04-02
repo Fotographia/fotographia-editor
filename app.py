@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, request, jsonify
 from utils.validate_filename import validate_filename
 from utils.get_resolution import get_resolution
+from utils.resize import resize
 import json
 import os
 
@@ -63,6 +64,23 @@ def resolution():
     resolution = get_resolution(path)
 
     return jsonify(resolution), 200
+
+
+@app.route("/api/resize", methods=["POST"])
+def resize_func():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
+    data = request.json
+
+    width = int(data["width"])
+    height = int(data["height"])
+
+    resize(path, width, height)
+
+    return jsonify("OK"), 200
 
 
 # Main
