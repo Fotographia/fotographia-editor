@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for, request, jsonify
 from utils.validate_filename import validate_filename
 from utils.get_resolution import get_resolution
 from utils.resize import resize
+from utils.blur import blur
 import json
 import os
 
@@ -80,6 +81,17 @@ def resize_func():
 
     resize(path, width, height)
 
+    return jsonify("OK"), 200
+
+
+@app.route("/api/blur")
+def feature_blur():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
+    blur(path)
     return jsonify("OK"), 200
 
 

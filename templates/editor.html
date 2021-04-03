@@ -19,7 +19,9 @@
     </div>
     {% include 'includes/resolution.html' %}
     {% include 'includes/resize.html' %}
+    {% include 'includes/blur.html' %}
 
+    <script src="{{ url_for('static', filename='js/blur.js') }}"></script>
     <script src="{{ url_for('static', filename='js/editor.js') }}"></script>
     <script src="{{ url_for('static', filename='js/helpers.js') }}"></script>
     <script src="{{ url_for('static', filename='js/resolution.js') }}"></script>
