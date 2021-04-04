@@ -19,11 +19,11 @@
     </div>
     {% include 'includes/resolution.html' %}
     {% include 'includes/resize.html' %}
-    {% include 'includes/grayscale.html' %}
+    {% include 'includes/negate.html' %}
 
     <script src="{{ url_for('static', filename='js/editor.js') }}"></script>
     <script src="{{ url_for('static', filename='js/helpers.js') }}"></script>
     <script src="{{ url_for('static', filename='js/resolution.js') }}"></script>
     <script src="{{ url_for('static', filename='js/resize.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/grayscale.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/negate.js') }}"></script>
 {% endblock %}
