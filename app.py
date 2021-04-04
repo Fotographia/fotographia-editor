@@ -106,7 +106,6 @@ def negate_func():
 
     return jsonify("OK"), 200
 
-
 # Main
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=PORT)
