@@ -1,0 +1,5 @@
+source venv/bin/activate
+echo
+export PORT=5000
+export FLASK_ENV=development
+python app.py
