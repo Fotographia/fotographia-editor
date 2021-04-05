@@ -68,7 +68,7 @@ def resolution():
 
 
 @app.route("/api/resize", methods=["POST"])
-def resize_func():
+def resize_image():
     session_id = request.args.get("session_id")
     filename = request.args.get("filename")
 
