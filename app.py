@@ -3,6 +3,7 @@ from utils.validate_filename import validate_filename
 from utils.get_resolution import get_resolution
 from utils.resize import resize
 from utils.grayscale import grayscale
+from utils.negate import negate
 import json
 import os
 
@@ -91,6 +92,17 @@ def grayscale_func():
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
 
     grayscale(path)
+
+    return jsonify("OK"), 200
+
+@app.route("/api/negate")
+def negate_func():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
+    negate(path)
 
     return jsonify("OK"), 200
 
