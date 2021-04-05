@@ -15,5 +15,3 @@ def blur(path):
     os.remove(path)
     blur = Image.fromarray(blur)
     blur.save(path)
-
-    return blur
