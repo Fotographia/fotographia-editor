@@ -3,6 +3,7 @@ from utils.validate_filename import validate_filename
 from utils.get_resolution import get_resolution
 from utils.resize import resize
 from utils.blur import blur
+from utils.grayscale import grayscale
 import json
 import os
 
@@ -68,7 +69,7 @@ def resolution():
 
 
 @app.route("/api/resize", methods=["POST"])
-def resize_func():
+def resize_image():
     session_id = request.args.get("session_id")
     filename = request.args.get("filename")
 
@@ -80,6 +81,18 @@ def resize_func():
     height = int(data["height"])
 
     resize(path, width, height)
+
+    return jsonify("OK"), 200
+
+
+@app.route("/api/grayscale")
+def grayscale_func():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
+    grayscale(path)
 
     return jsonify("OK"), 200
 
