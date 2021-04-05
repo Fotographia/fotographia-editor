@@ -31,7 +31,7 @@ $ export FLASK_ENV=development
 $ pre-commit install  
 
 # Run application
-$ python run.py
+$ python app.py
 ```
 
 Open your browser and go to localhost:5000
