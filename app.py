@@ -5,6 +5,7 @@ from utils.resize import resize
 from utils.blur import blur
 from utils.grayscale import grayscale
 from utils.negate import negate
+from utils.rotate import rotate
 import json
 import os
 
@@ -97,16 +98,18 @@ def grayscale_func():
 
     return jsonify("OK"), 200
 
+
 @app.route("/api/blur")
 def feature_blur():
     session_id = request.args.get("session_id")
     filename = request.args.get("filename")
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
-    blur(path)    
-    
+    blur(path)
+
     return jsonify("OK"), 200
-  
+
+
 @app.route("/api/negate")
 def negate_func():
     session_id = request.args.get("session_id")
@@ -116,6 +119,18 @@ def negate_func():
     negate(path)
 
     return jsonify("OK"), 200
+
+
+@app.route("/api/rotate")
+def rotate_image():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+    rotate(path)
+
+    return jsonify("OK"), 200
+
 
 # Main
 if __name__ == "__main__":
