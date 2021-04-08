@@ -5,6 +5,7 @@ from utils.resize import resize
 from utils.blur import blur
 from utils.grayscale import grayscale
 from utils.gamma_correction import gamma_correction
+from utils.negate import negate
 import json
 import os
 
@@ -97,17 +98,25 @@ def grayscale_func():
 
     return jsonify("OK"), 200
 
-
 @app.route("/api/blur")
 def feature_blur():
     session_id = request.args.get("session_id")
     filename = request.args.get("filename")
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
-
-    blur(path)
+    blur(path)    
+    
     return jsonify("OK"), 200
+  
+@app.route("/api/negate")
+def negate_func():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
 
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+    negate(path)
+
+    return jsonify("OK"), 200
 
 @app.route("/api/gamma-correction", methods=["POST"])
 def feature_gamma_correction():
