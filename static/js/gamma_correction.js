@@ -16,7 +16,6 @@ const gamma_correction = (event) => {
     const gamma_value = document.getElementById("gamma_value").value
     const body = JSON.stringify({gamma_value})
 
-    console.log("Test. OK?")
     const queryString = window.location.search
     fetch(`/api/gamma-correction${queryString}`,{
         method: "POST",
@@ -24,7 +23,6 @@ const gamma_correction = (event) => {
         headers:{'content-type': 'application/json'}
     })
     .then(response => {
-        console.log("Fetch")
         reloadImage()
     })
     .error( err => 
