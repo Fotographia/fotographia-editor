@@ -121,13 +121,17 @@ def negate_func():
     return jsonify("OK"), 200
 
 
-@app.route("/api/flip")
+@app.route("/api/flip", methods=["POST"])
 def flip_image():
     session_id = request.args.get("session_id")
     filename = request.args.get("filename")
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
-    flip(path)
+
+    select_val = request.get_json("val")
+    # select_val = data["val"]
+
+    flip(path, select_val)
 
     return jsonify("OK"), 200
 
