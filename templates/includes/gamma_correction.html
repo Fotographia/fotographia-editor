@@ -1,0 +1,8 @@
+<div>
+    <button onclick="show_gamma_correction(event)">Gamma Correction</button>
+    <form onsubmit="gamma_correction(event)" id="gamma-form" style="display:none">
+        <label>Allowed values: 0.1 - 1.9.</label>
+        <input id="gamma_value" name="gamma_value" placeholder="The expected format: 0.5" pattern="^[0-1]+\.[0-9]$" required>
+        <button type="submit">Gamma Correction</button>
+    </form>
+</div>
