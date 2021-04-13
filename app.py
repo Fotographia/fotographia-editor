@@ -128,8 +128,8 @@ def flip_image():
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
 
-    select_val = request.get_json("val")
-    # select_val = data["val"]
+    data = request.get_json("val")
+    select_val = data["val"]
 
     flip(path, select_val)
 
