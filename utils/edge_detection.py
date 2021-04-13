@@ -18,4 +18,4 @@ def edge_detection(path, select_val):
         result = cv2.Sobel(img, cv2.CV_64F, 0, 1, ksize=5)
 
     os.remove(path)
-    imsave(path, result, cmap=plt.get_cmap("gray"))
+    cv2.imwrite(path, result)
