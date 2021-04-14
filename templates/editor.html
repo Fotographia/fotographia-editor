@@ -24,6 +24,8 @@
     {% include 'includes/gamma_correction.html' %}
     {% include 'includes/negate.html' %}
     {% include 'includes/flip.html' %}
+    {% include 'includes/threshold.html' %}
+
 
     <script src="{{ url_for('static', filename='js/blur.js') }}"></script>
     <script src="{{ url_for('static', filename='js/editor.js') }}"></script>
@@ -34,5 +36,7 @@
     <script src="{{ url_for('static', filename='js/gamma_correction.js') }}"></script>
     <script src="{{ url_for('static', filename='js/negate.js') }}"></script>
     <script src="{{ url_for('static', filename='js/flip.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/threshold.js') }}"></script>
+
 
 {% endblock %}
