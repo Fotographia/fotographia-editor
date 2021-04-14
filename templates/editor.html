@@ -23,6 +23,7 @@
     {% include 'includes/grayscale.html' %}
     {% include 'includes/gamma_correction.html' %}
     {% include 'includes/negate.html' %}
+    {% include 'includes/rotate.html' %}
     {% include 'includes/flip.html' %}
 
     <script src="{{ url_for('static', filename='js/blur.js') }}"></script>
@@ -33,6 +34,7 @@
     <script src="{{ url_for('static', filename='js/grayscale.js') }}"></script>
     <script src="{{ url_for('static', filename='js/gamma_correction.js') }}"></script>
     <script src="{{ url_for('static', filename='js/negate.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/rotate.js') }}"></script>
     <script src="{{ url_for('static', filename='js/flip.js') }}"></script>
 
 {% endblock %}

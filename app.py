@@ -6,6 +6,7 @@ from utils.blur import blur
 from utils.grayscale import grayscale
 from utils.gamma_correction import gamma_correction
 from utils.negate import negate
+from utils.rotate import rotate
 from utils.flip import flip
 import json
 import os
@@ -128,13 +129,25 @@ def flip_image():
     filename = request.args.get("filename")
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
-    
+
     data = request.get_json("val")
     select_val = data["val"]
 
     flip(path, select_val)
-    
+
     return jsonify("OK"), 200
+
+
+@app.route("/api/rotate")
+def rotate_image():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+    rotate(path)
+
+    return jsonify("OK"), 200
+
 
 @app.route("/api/gamma-correction", methods=["POST"])
 def feature_gamma_correction():
@@ -148,7 +161,7 @@ def feature_gamma_correction():
     gamma = float(data["gamma_value"])
 
     gamma_correction(path, gamma)
-    
+
     return jsonify("OK"), 200
 
 
