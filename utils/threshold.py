@@ -1,4 +1,5 @@
 import cv2
+import os
 
 
 def threshold(path, values):
@@ -17,4 +18,5 @@ def threshold(path, values):
             img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2
         )
 
+    os.remove(path)
     cv2.imwrite(path, thres)
