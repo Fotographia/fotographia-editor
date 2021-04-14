@@ -1,4 +1,5 @@
 from PIL import Image
+import os
 
 
 def pixelize(path, value):
@@ -11,5 +12,5 @@ def pixelize(path, value):
     # Scale back up using NEAREST to original size
     result = imgSmall.resize(img.size, Image.NEAREST)
 
-    # Save
+    os.remove(path)
     result.save(path)
