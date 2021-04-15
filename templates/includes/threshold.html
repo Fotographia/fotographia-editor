@@ -1,0 +1,12 @@
+<div>
+    <button onclick="showThreshold(event)">Threshold</button>
+    <form onsubmit="threshold(event)" id="threshold-form" style="display:none">
+        <select name="threshold_select" id="threshold_select">
+            <option value="0">Normal threshold</option>
+            <option value="1">Adaptive mean threshold</option>
+            <option value="2">Gaussian threshold</option>
+        </select>
+        <button type="submit">Apply</button>
+    </form>
+</div>
+

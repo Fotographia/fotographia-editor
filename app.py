@@ -8,6 +8,7 @@ from utils.gamma_correction import gamma_correction
 from utils.negate import negate
 from utils.rotate import rotate
 from utils.flip import flip
+from utils.threshold import threshold
 import json
 import os
 
@@ -161,6 +162,21 @@ def feature_gamma_correction():
     gamma = float(data["gamma_value"])
 
     gamma_correction(path, gamma)
+
+    return jsonify("OK"), 200
+
+
+@app.route("/api/threshold", methods=["POST"])
+def feature_threshold():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
+    data = request.get_json("thres_value")
+    values = data["thres_value"]
+
+    threshold(path, values)
 
     return jsonify("OK"), 200
 
