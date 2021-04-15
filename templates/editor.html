@@ -25,6 +25,8 @@
     {% include 'includes/negate.html' %}
     {% include 'includes/rotate.html' %}
     {% include 'includes/flip.html' %}
+    {% include 'includes/contrast.html' %}
+
 
     <script src="{{ url_for('static', filename='js/blur.js') }}"></script>
     <script src="{{ url_for('static', filename='js/editor.js') }}"></script>
@@ -36,5 +38,6 @@
     <script src="{{ url_for('static', filename='js/negate.js') }}"></script>
     <script src="{{ url_for('static', filename='js/rotate.js') }}"></script>
     <script src="{{ url_for('static', filename='js/flip.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/contrast.js') }}"></script>
 
 {% endblock %}
