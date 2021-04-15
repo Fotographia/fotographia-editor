@@ -6,6 +6,7 @@ from utils.blur import blur
 from utils.grayscale import grayscale
 from utils.gamma_correction import gamma_correction
 from utils.negate import negate
+from utils.rotate import rotate
 from utils.flip import flip
 from utils.threshold import threshold
 import json
@@ -134,6 +135,17 @@ def flip_image():
     select_val = data["val"]
 
     flip(path, select_val)
+
+    return jsonify("OK"), 200
+
+
+@app.route("/api/rotate")
+def rotate_image():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+    rotate(path)
 
     return jsonify("OK"), 200
 
