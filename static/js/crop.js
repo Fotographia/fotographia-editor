@@ -28,10 +28,7 @@ const crop = (event) => {
      )
     .then(response => {
         reloadImage()
-        document.getElementById("X").innerHTML = X
-        document.getElementById("Y").innerHTML = Y
-        document.getElementById("xOffset").innerHTML = xOffset
-        document.getElementById("yOffset").innerHTML = yOffset
+        getResolution()
     })
     .error( err => 
         alert(err)
