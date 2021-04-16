@@ -26,6 +26,8 @@
     {% include 'includes/rotate.html' %}
     {% include 'includes/flip.html' %}
     {% include 'includes/contrast.html' %}
+    {% include 'includes/edge_detection.html' %}
+    {% include 'includes/threshold.html' %}
 
 
     <script src="{{ url_for('static', filename='js/blur.js') }}"></script>
@@ -39,5 +41,7 @@
     <script src="{{ url_for('static', filename='js/rotate.js') }}"></script>
     <script src="{{ url_for('static', filename='js/flip.js') }}"></script>
     <script src="{{ url_for('static', filename='js/contrast.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/edge_detection.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/threshold.js') }}"></script>
 
 {% endblock %}
