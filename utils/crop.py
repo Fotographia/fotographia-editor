@@ -13,10 +13,8 @@ def crop(path, X, Y, xOffset, yOffset):
         xOffset -= xNew - x
     if (Y + yOffset) > y:
         yOffset -= yNew - y
-    if X > x or Y > y:
-        ...
-    else:
-        img = img[yOffset : Y + yOffset, xOffset : X + xOffset]
+
+    img = img[yOffset : Y + yOffset, xOffset : X + xOffset]
 
     os.remove(path)
     cv2.imwrite(path, img)
