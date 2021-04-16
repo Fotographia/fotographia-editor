@@ -1,7 +1,7 @@
 const show_crop = (event) => {
     event.preventDefault()
     const form = document.getElementById("crop-form")
-
+    
     if (form.style.display === "none") {
         form.style.display = "block"
     } else {
@@ -9,11 +9,8 @@ const show_crop = (event) => {
     }
 }
 
-
 const crop = (event) => {
     event.preventDefault()
-
-	reloadImage()
 
     const X = document.getElementById("X_value").value
     const Y = document.getElementById("Y_value").value
