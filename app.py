@@ -108,6 +108,7 @@ def feature_blur():
     filename = request.args.get("filename")
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
     blur(path)
 
     return jsonify("OK"), 200
@@ -119,6 +120,7 @@ def negate_func():
     filename = request.args.get("filename")
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
     negate(path)
 
     return jsonify("OK"), 200
@@ -145,6 +147,7 @@ def rotate_image():
     filename = request.args.get("filename")
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
     rotate(path)
 
     return jsonify("OK"), 200
