@@ -1,9 +1,4 @@
-window.onload = (event) => {
-    event.preventDefault()
-    
-    // prevents browser getting the image from the cache
-    reloadImage()
-    
+const getResolution = () => {
     const queryString = window.location.search
 
     fetch(`/api/resolution${queryString}`)
@@ -18,4 +13,13 @@ window.onload = (event) => {
     .error( err => 
         alert(err)
     )
+
+}
+
+window.onload = (event) => {
+    event.preventDefault()
+    
+    // prevents browser getting the image from the cache
+    reloadImage()
+    getResolution()   
 }

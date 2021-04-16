@@ -1,0 +1,11 @@
+<div>
+    <button onclick="showEdge(event)">Edge Detection</button>
+    <form onsubmit="edge_detection(event)" id="edge_detection-form" style="display:none">
+        <select name="edge_detection-select" id="edge_detection-select">
+            <option value="0">Laplacian</option>
+            <option value="1">Sobel X</option>
+            <option value="2">Sobel Y</option>
+        </select>
+        <button type="submit">Apply</button>
+    </form>
+</div>
