@@ -1,7 +1,5 @@
 import cv2
 import numpy as np
-from matplotlib import pyplot as plt
-from matplotlib.image import imsave
 import os
 
 
