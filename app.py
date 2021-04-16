@@ -4,8 +4,10 @@ from utils.get_resolution import get_resolution
 from utils.resize import resize
 from utils.blur import blur
 from utils.grayscale import grayscale
+from utils.gamma_correction import gamma_correction
 from utils.negate import negate
-from utils.crop import crop
+from utils.rotate import rotate
+from utils.flip import flip
 import json
 import os
 
@@ -121,8 +123,34 @@ def negate_func():
     return jsonify("OK"), 200
 
 
-@app.route("/api/crop", methods=["POST"])
-def crop_func():
+@app.route("/api/flip", methods=["POST"])
+def flip_image():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
+    data = request.get_json("val")
+    select_val = data["val"]
+
+    flip(path, select_val)
+
+    return jsonify("OK"), 200
+
+
+@app.route("/api/rotate")
+def rotate_image():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+    rotate(path)
+
+    return jsonify("OK"), 200
+
+
+@app.route("/api/gamma-correction", methods=["POST"])
+def feature_gamma_correction():
     session_id = request.args.get("session_id")
     filename = request.args.get("filename")
 
@@ -130,12 +158,9 @@ def crop_func():
 
     data = request.json
 
-    X = int(data["X"])
-    Y = int(data["Y"])
-    xOffset = int(data["xOffset"])
-    yOffset = int(data["yOffset"])
+    gamma = float(data["gamma_value"])
 
-    crop(path, X, Y, xOffset, yOffset)
+    gamma_correction(path, gamma)
 
     return jsonify("OK"), 200
 
