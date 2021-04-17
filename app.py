@@ -141,7 +141,6 @@ def flip_image():
     return jsonify("OK"), 200
 
 
-
 @app.route("/api/rotate")
 def rotate_image():
     session_id = request.args.get("session_id")
@@ -169,38 +168,32 @@ def feature_gamma_correction():
 
 @app.route("/api/pixelize", methods=["POST"])
 def feature_pixelize():
-  session_id = request.args.get("session_id")
-  filename = request.args.get("filename")
-
-  path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
-  data = request.json
-  value = int(data["pixels"])
-
-  pixelize(path, value)
-  
-  return jsonify("OK"), 200
-  
-
-@app.route("/api/edge-detection", methods=["POST"])
-def feature_edge_detection():
-  session_id = request.args.get("session_id")
-  filename = request.args.get("filename")
-
-  path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
-
     session_id = request.args.get("session_id")
     filename = request.args.get("filename")
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
-  
+    data = request.json
+    value = int(data["pixels"])
+
+    pixelize(path, value)
+
+    return jsonify("OK"), 200
+
+
+@app.route("/api/edge-detection", methods=["POST"])
+def feature_edge_detection():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
     data = request.get_json("val")
     select_val = data["val"]
 
     edge_detection(path, select_val)
-    
-    return jsonify("OK"), 200    
-  
- 
+
+    return jsonify("OK"), 200
+
+
 @app.route("/api/threshold", methods=["POST"])
 def feature_threshold():
 
