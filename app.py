@@ -8,6 +8,7 @@ from utils.gamma_correction import gamma_correction
 from utils.negate import negate
 from utils.rotate import rotate
 from utils.flip import flip
+from utils.sepia import sepia
 import json
 import os
 
@@ -155,12 +156,22 @@ def feature_gamma_correction():
     filename = request.args.get("filename")
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
-
     data = request.json
-
     gamma = float(data["gamma_value"])
 
     gamma_correction(path, gamma)
+
+    return jsonify("OK"), 200
+
+
+@app.route("/api/sepia")
+def feature_sepia():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
+    sepia(path)
 
     return jsonify("OK"), 200
 
