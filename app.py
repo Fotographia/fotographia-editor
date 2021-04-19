@@ -8,6 +8,7 @@ from utils.gamma_correction import gamma_correction
 from utils.negate import negate
 from utils.rotate import rotate
 from utils.flip import flip
+from utils.pixelize import pixelize
 from utils.edge_detection import edge_detection
 from utils.threshold import threshold
 from utils.brightness import brightness
@@ -158,9 +159,7 @@ def feature_gamma_correction():
     filename = request.args.get("filename")
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
-
     data = request.json
-
     gamma = float(data["gamma_value"])
 
     gamma_correction(path, gamma)
@@ -168,9 +167,22 @@ def feature_gamma_correction():
     return jsonify("OK"), 200
 
 
+@app.route("/api/pixelize", methods=["POST"])
+def feature_pixelize():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+    data = request.json
+    value = int(data["pixels"])
+
+    pixelize(path, value)
+
+    return jsonify("OK"), 200
+
+
 @app.route("/api/edge-detection", methods=["POST"])
 def feature_edge_detection():
-
     session_id = request.args.get("session_id")
     filename = request.args.get("filename")
 
