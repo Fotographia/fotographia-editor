@@ -10,6 +10,7 @@ from utils.rotate import rotate
 from utils.flip import flip
 from utils.edge_detection import edge_detection
 from utils.threshold import threshold
+from utils.emboss import emboss
 import json
 import os
 
@@ -174,15 +175,15 @@ def feature_edge_detection():
     filename = request.args.get("filename")
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
-  
+
     data = request.get_json("val")
     select_val = data["val"]
 
     edge_detection(path, select_val)
-    
+
     return jsonify("OK"), 200
-  
- 
+
+
 @app.route("/api/threshold", methods=["POST"])
 def feature_threshold():
 
@@ -195,6 +196,25 @@ def feature_threshold():
     values = data["thres_value"]
 
     threshold(path, values)
+
+    return jsonify("OK"), 200
+
+
+@app.route("/api/emboss", methods=["POST"])
+def emboss_func():
+
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
+    data = request.json
+
+    sel_depth = int(data["embDepth"])
+    scale = float(data["embScale"])
+    offset = int(data["embOffset"])
+
+    emboss(path, sel_depth, scale, offset)
 
     return jsonify("OK"), 200
 
