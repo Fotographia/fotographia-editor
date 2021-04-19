@@ -9,6 +9,7 @@ from utils.negate import negate
 from utils.rotate import rotate
 from utils.flip import flip
 from utils.contrast import contrast
+from utils.pixelize import pixelize
 from utils.edge_detection import edge_detection
 from utils.threshold import threshold
 import json
@@ -158,9 +159,7 @@ def feature_gamma_correction():
     filename = request.args.get("filename")
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
-
     data = request.json
-
     gamma = float(data["gamma_value"])
 
     gamma_correction(path, gamma)
@@ -168,39 +167,50 @@ def feature_gamma_correction():
     return jsonify("OK"), 200
 
 
-
 @app.route("/api/contrast", methods=["POST"])
 def feature_contrast():
-
     session_id = request.args.get("session_id")
     filename = request.args.get("filename")
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
-    
+        
     data = request.get_json("contrastVal")
     value = int(data["contrastVal"])
 
     contrast(path, value)
     
     return jsonify("OK"), 200
-
   
-@app.route("/api/edge-detection", methods=["POST"])
-def feature_edge_detection():
 
+@app.route("/api/pixelize", methods=["POST"])
+def feature_pixelize():
     session_id = request.args.get("session_id")
     filename = request.args.get("filename")
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
-  
+
+    data = request.json
+    value = int(data["pixels"])
+
+    pixelize(path, value)
+
+    return jsonify("OK"), 200
+
+
+@app.route("/api/edge-detection", methods=["POST"])
+def feature_edge_detection():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
     data = request.get_json("val")
     select_val = data["val"]
 
     edge_detection(path, select_val)
-    
+
     return jsonify("OK"), 200
-  
- 
+
+
 @app.route("/api/threshold", methods=["POST"])
 def feature_threshold():
 

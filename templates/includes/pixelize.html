@@ -1,0 +1,8 @@
+<div>
+    <button onclick="showPixelize(event)">Pixelize</button>
+    <form onsubmit="pixelize(event)" id="pixel-form" style="display:none">
+        <label>Allowed values: 001-199</label>
+        <input id="pixels" name="pixels" placeholder="Insert number of pixels" pattern="^[01]?[0-9][0-9]?$" required>
+        <button type="submit">Apply</button>
+    </form>
+</div>
