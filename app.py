@@ -10,6 +10,7 @@ from utils.rotate import rotate
 from utils.flip import flip
 from utils.edge_detection import edge_detection
 from utils.threshold import threshold
+from utils.brightness import brightness
 import json
 import os
 
@@ -174,15 +175,15 @@ def feature_edge_detection():
     filename = request.args.get("filename")
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
-  
+
     data = request.get_json("val")
     select_val = data["val"]
 
     edge_detection(path, select_val)
-    
+
     return jsonify("OK"), 200
-  
- 
+
+
 @app.route("/api/threshold", methods=["POST"])
 def feature_threshold():
 
@@ -195,6 +196,22 @@ def feature_threshold():
     values = data["thres_value"]
 
     threshold(path, values)
+
+    return jsonify("OK"), 200
+
+
+@app.route("/api/brightness", methods=["POST"])
+def brightness_func():
+
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
+    data = request.json
+    value = int(data["bright_value"])
+
+    brightness(path, value)
 
     return jsonify("OK"), 200
 
