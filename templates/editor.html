@@ -28,6 +28,7 @@
     {% include 'includes/pixelize.html' %}
     {% include 'includes/edge_detection.html' %}
     {% include 'includes/threshold.html' %}
+    {% include 'includes/crop.html' %}
 
     <script src="{{ url_for('static', filename='js/blur.js') }}"></script>
     <script src="{{ url_for('static', filename='js/editor.js') }}"></script>
@@ -42,5 +43,7 @@
     <script src="{{ url_for('static', filename='js/pixelize.js') }}"></script>
     <script src="{{ url_for('static', filename='js/edge_detection.js') }}"></script>
     <script src="{{ url_for('static', filename='js/threshold.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/crop.js') }}"></script>
+
 
 {% endblock %}
