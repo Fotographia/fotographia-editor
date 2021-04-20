@@ -1,0 +1,22 @@
+<div>
+    <button onclick="show_crop(event)">Crop</button>
+    <form onsubmit="crop(event)" id="crop-form" style="display:none;">
+        <p><label>Enter crop window size and offset</label></p>
+        <p><label>If no offset given, default value used</label></p>
+        <p><input id="X_value" onchange="getMaxX()" placeholder="crop width" type="number" required></p>
+        <p><input id="Y_value" onchange="getMaxY()" placeholder="crop height" type="number" required></p>
+        <p><input id="xOffset_value" type="number" value="0"></p>
+        <p><input id="yOffset_value" type="number" value="0"></p>
+        <button type="submit">Crop selection</button>
+    </form>
+</div>
+<script>
+    function getMaxX() {
+        const x = parseInt(document.getElementById("width").innerText);
+        document.getElementById("X_value").max = x;
+    }
+    function getMaxY() {
+        const y = parseInt(document.getElementById("height").innerText);
+        document.getElementById("Y_value").max = y;
+    }
+</script>
