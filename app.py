@@ -13,6 +13,7 @@ from utils.pixelize import pixelize
 from utils.edge_detection import edge_detection
 from utils.threshold import threshold
 from utils.crop import crop
+from utils.brightness import brightness
 import json
 import os
 
@@ -227,6 +228,7 @@ def feature_threshold():
 
     return jsonify("OK"), 200
 
+
 @app.route("/api/crop", methods=["POST"])
 def crop_func():
     session_id = request.args.get("session_id")
@@ -245,7 +247,23 @@ def crop_func():
 
     return jsonify("OK"), 200
 
-    
+
+@app.route("/api/brightness", methods=["POST"])
+def brightness_func():
+
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
+    data = request.json
+    value = int(data["bright_value"])
+
+    brightness(path, value)
+
+    return jsonify("OK"), 200
+
+
 # Main
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=PORT)

@@ -30,6 +30,7 @@
     {% include 'includes/edge_detection.html' %}
     {% include 'includes/threshold.html' %}
     {% include 'includes/crop.html' %}
+    {% include 'includes/brightness.html' %}
 
 
     <script src="{{ url_for('static', filename='js/blur.js') }}"></script>
@@ -47,6 +48,6 @@
     <script src="{{ url_for('static', filename='js/edge_detection.js') }}"></script>
     <script src="{{ url_for('static', filename='js/threshold.js') }}"></script>
     <script src="{{ url_for('static', filename='js/crop.js') }}"></script>
-
+    <script src="{{ url_for('static', filename='js/brightness.js') }}"></script>
 
 {% endblock %}
