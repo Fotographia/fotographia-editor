@@ -1,3 +1,4 @@
+import numpy as np
 import cv2
 import os
 
@@ -5,25 +6,21 @@ import os
 def sepia(path):
     img = cv2.imread(path)
 
-    # get image shape
-    i, j, k = img.shape
-    for x in range(i):
-        # change image colors
-        for y in range(j):
-            R = img[x, y, 2] * 0.393 + img[x, y, 1] * 0.769 + img[x, y, 0] * 0.189
-            G = img[x, y, 2] * 0.349 + img[x, y, 1] * 0.686 + img[x, y, 0] * 0.168
-            B = img[x, y, 2] * 0.272 + img[x, y, 1] * 0.534 + img[x, y, 0] * 0.131
-            if R > 255:
-                img[x, y, 2] = 255
-            else:
-                img[x, y, 2] = R
-            if G > 255:
-                img[x, y, 1] = 255
-            else:
-                img[x, y, 1] = G
-            if B > 255:
-                img[x, y, 0] = 255
-            else:
-                img[x, y, 0] = B
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    normalized_gray = np.array(gray, np.float32) / 255
+
+    # solid color
+    sepia = np.ones(img.shape)
+    sepia[:, :, 0] *= 153  # B
+    sepia[:, :, 1] *= 204  # G
+    sepia[:, :, 2] *= 255  # R
+
+    # hadamard
+    sepia[:, :, 0] *= normalized_gray  # B
+    sepia[:, :, 1] *= normalized_gray  # G
+    sepia[:, :, 2] *= normalized_gray  # R
+
+    img = np.array(sepia, np.uint8)
+
     os.remove(path)
     cv2.imwrite(path, img)
