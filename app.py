@@ -175,14 +175,14 @@ def feature_contrast():
     filename = request.args.get("filename")
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
-        
+
     data = request.get_json("contrastVal")
     value = int(data["contrastVal"])
 
     contrast(path, value)
-    
+
     return jsonify("OK"), 200
-  
+
 
 @app.route("/api/pixelize", methods=["POST"])
 def feature_pixelize():
