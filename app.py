@@ -15,6 +15,7 @@ from utils.edge_detection import edge_detection
 from utils.threshold import threshold
 from utils.crop import crop
 from utils.brightness import brightness
+from utils.emboss import emboss
 import json
 import os
 
@@ -206,6 +207,7 @@ def feature_edge_detection():
     filename = request.args.get("filename")
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
     data = request.get_json("val")
     select_val = data["val"]
 
@@ -265,7 +267,6 @@ def crop_func():
 
 @app.route("/api/brightness", methods=["POST"])
 def brightness_func():
-
     session_id = request.args.get("session_id")
     filename = request.args.get("filename")
 
@@ -275,6 +276,24 @@ def brightness_func():
     value = int(data["bright_value"])
 
     brightness(path, value)
+    
+    return jsonify("OK"), 200
+    
+
+@app.route("/api/emboss", methods=["POST"])
+def emboss_func():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+    
+    data = request.json
+    
+    sel_depth = int(data["embDepth"])
+    scale = float(data["embScale"])
+    offset = int(data["embOffset"])
+
+    emboss(path, sel_depth, scale, offset)
 
     return jsonify("OK"), 200
 
