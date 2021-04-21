@@ -250,7 +250,7 @@ def crop_func():
     return jsonify("OK"), 200
 
 
-  @app.route("/api/brightness", methods=["POST"])
+@app.route("/api/brightness", methods=["POST"])
 def brightness_func():
     session_id = request.args.get("session_id")
     filename = request.args.get("filename")
