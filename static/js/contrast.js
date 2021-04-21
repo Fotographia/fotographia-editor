@@ -28,7 +28,7 @@ const contrast_feature = (event) => {
     .then(response => {
         reloadImage()
     })
-    .error( err => 
+    .catch( err => 
         alert(err)
     )
 }
