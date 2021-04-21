@@ -8,10 +8,12 @@ from utils.gamma_correction import gamma_correction
 from utils.negate import negate
 from utils.rotate import rotate
 from utils.flip import flip
+from utils.contrast import contrast
 from utils.pixelize import pixelize
 from utils.edge_detection import edge_detection
 from utils.threshold import threshold
 from utils.crop import crop
+from utils.brightness import brightness
 from utils.emboss import emboss
 import json
 import os
@@ -168,12 +170,28 @@ def feature_gamma_correction():
     return jsonify("OK"), 200
 
 
+@app.route("/api/contrast", methods=["POST"])
+def feature_contrast():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+        
+    data = request.get_json("contrastVal")
+    value = int(data["contrastVal"])
+
+    contrast(path, value)
+    
+    return jsonify("OK"), 200
+  
+
 @app.route("/api/pixelize", methods=["POST"])
 def feature_pixelize():
     session_id = request.args.get("session_id")
     filename = request.args.get("filename")
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
     data = request.json
     value = int(data["pixels"])
 
@@ -212,6 +230,7 @@ def feature_threshold():
 
     return jsonify("OK"), 200
 
+
 @app.route("/api/crop", methods=["POST"])
 def crop_func():
     session_id = request.args.get("session_id")
@@ -230,16 +249,31 @@ def crop_func():
 
     return jsonify("OK"), 200
 
-@app.route("/api/emboss", methods=["POST"])
-def emboss_func():
 
+  @app.route("/api/brightness", methods=["POST"])
+def brightness_func():
     session_id = request.args.get("session_id")
     filename = request.args.get("filename")
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
 
     data = request.json
+    value = int(data["bright_value"])
 
+    brightness(path, value)
+    
+    return jsonify("OK"), 200
+    
+
+@app.route("/api/emboss", methods=["POST"])
+def emboss_func():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+    
+    data = request.json
+    
     sel_depth = int(data["embDepth"])
     scale = float(data["embScale"])
     offset = int(data["embOffset"])
