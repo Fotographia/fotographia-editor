@@ -33,6 +33,7 @@
     {% include 'includes/crop.html' %}
     {% include 'includes/brightness.html' %}
     {% include 'includes/emboss.html' %}
+    {% include 'includes/water_color.html' %}
 
     <script src="{{ url_for('static', filename='js/blur.js') }}"></script>
     <script src="{{ url_for('static', filename='js/editor.js') }}"></script>
@@ -52,5 +53,6 @@
     <script src="{{ url_for('static', filename='js/crop.js') }}"></script>
     <script src="{{ url_for('static', filename='js/brightness.js') }}"></script>
     <script src="{{ url_for('static', filename='js/emboss.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/water_color.js') }}"></script>
 
 {% endblock %}
