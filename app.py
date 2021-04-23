@@ -41,6 +41,11 @@ def about():
     return render_template("about.html")
 
 
+@app.route("/editor_beta")
+def editor_beta():
+    return render_template("editor_beta.html")
+
+
 @app.route("/editor")
 def editor():
     session_id = request.args.get("session_id")

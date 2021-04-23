@@ -4,53 +4,30 @@
     <title>Ikona // Editor</title>
 {% endblock %}
 
-{% block content %}
-    <nav class="controlbar">
-        <ul class="container--editor controlbar__list">
-            <li class="controlbar__item project-name">This is hardcoded.png</li>
-            <li class="controlbar__item"><button id="btn-export" class="btn">Export</button></li>
-        </ul>
-    </nav>
-    <hr> <!-- White-line -->
-    <div class="editor">
-        <div id="panzoom">
-            <img id="img" src="{{ url_for('static', filename=filename) }}"/>
-        </div>
-    </div>
-    {% include 'includes/resolution.html' %}
-    {% include 'includes/resize.html' %}
-    {% include 'includes/blur.html' %}
-    {% include 'includes/grayscale.html' %}
-    {% include 'includes/gamma_correction.html' %}
-    {% include 'includes/negate.html' %}
-    {% include 'includes/rotate.html' %}
-    {% include 'includes/flip.html' %}
-    {% include 'includes/sepia.html' %}
-    {% include 'includes/contrast.html' %}
-    {% include 'includes/pixelize.html' %}
-    {% include 'includes/edge_detection.html' %}
-    {% include 'includes/threshold.html' %}
-    {% include 'includes/crop.html' %}
-    {% include 'includes/brightness.html' %}
-    {% include 'includes/emboss.html' %}
 
-    <script src="{{ url_for('static', filename='js/blur.js') }}"></script>
+{% block content %}
+    <!-- Needs to be on top -->
+    <div class='zoomable'>
+        <img id="img" class="panzoom" src="{{ url_for('static', filename=filename) }}"/>
+    </div>
+
+    <!-- EDITOR HTML -->
+    <div class="editor">
+      <nav class="controlbar">
+          <ul class="container--editor controlbar__list">
+              <li class="controlbar__item project-name">This is hardcoded.png</li>
+              <ul>
+                  <li></li>
+              </ul>
+              <li class="controlbar__item"><button id="btn-export" class="btn">Export</button></li>
+          </ul>
+          <hr> <!-- White-line -->
+      </nav>
+    </div>
+    <!-- END EDITOR HTML -->
+
+    <!-- SCRIPTS -->
+    <script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
     <script src="{{ url_for('static', filename='js/editor.js') }}"></script>
     <script src="{{ url_for('static', filename='js/helpers.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/resolution.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/resize.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/grayscale.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/gamma_correction.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/negate.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/rotate.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/flip.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/sepia.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/contrast.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/pixelize.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/edge_detection.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/threshold.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/crop.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/brightness.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/emboss.js') }}"></script>
-
 {% endblock %}

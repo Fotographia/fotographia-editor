@@ -17,6 +17,8 @@
 
 html, body {
     height: 100vh;
+    position: fixed;
+    width: 100%;
     /* overflow: hidden; */
 }
 
@@ -191,7 +193,15 @@ button {
     margin: 1.4rem 0 2rem;
 }
 
-.controlbar .controlbar__list {
+.controlbar {
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: var(--clr-dark);
+}
+
+.controlbar__list {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -214,13 +224,9 @@ button {
     justify-content: center;
 }
 
-#panzoom {
-    margin-top: 2rem;
-}
-
-#panzoom img {
+/* #img {
     width: 800px;
-}
+} */
 
 @media only screen and (min-width: 912px) {
     
