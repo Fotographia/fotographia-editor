@@ -7,8 +7,8 @@ window.onbeforeunload = (() => {
 const canvas = document.querySelector(".zoomable")
 const zoomInButton = document.getElementById("zoomIn")
 const zoomOutButton = document.getElementById("zoomOut")
-let x = window.innerWidth / 2;
-let y = window.innerHeight / 2;
+let centerX = window.innerWidth / 2;
+let centerY = window.innerHeight / 2;
 
 // Instantiate panzoom object with properties
 const pz = panzoom(canvas, {
@@ -27,10 +27,10 @@ const pz = panzoom(canvas, {
 // Controlbar zoom buttons
 zoomInButton.addEventListener('click', (e) => {
     e.preventDefault()
-    pz.smoothZoom(x, y, 1.2)
+    pz.smoothZoom(centerX, centerY, 1.2)
 })
 
 zoomOutButton.addEventListener('click', (e) => {
     e.preventDefault()
-    pz.smoothZoom(x, y, 0.8)
+    pz.smoothZoom(centerX, centerY, 0.8)
 })
