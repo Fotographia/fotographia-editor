@@ -1,5 +1,5 @@
 /* Google font */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400&family=Roboto+Slab:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
 :root {
     --clr-black: black;
@@ -29,7 +29,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     color: var(--clr-light);
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 p {
@@ -78,8 +78,37 @@ button {
     box-shadow: 0px 2px 15px #fd4775b7;
 }
 
+
+.navbar__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    padding: 3rem 0;
+}
+
+.navbar__listitem {
+    float: right;
+}
+
+.navbar__listitem a {
+    display: block;
+    color: var(--clr-light);
+    text-align: center;
+    margin-left: 2rem;
+    text-decoration: none;
+    padding-bottom: 0.3rem;
+    border-bottom: solid 2px black;
+    transition: all 0.15s ease-in-out;
+    font-weight: 500;
+}
+
+.navbar__listitem a:hover {
+    border-bottom: solid 2px var(--clr-light);
+}
+
 .grid {
-    height: 100%;
+    height: 60vh;
 }
 
 .headline {
@@ -100,6 +129,17 @@ button {
     height: 100%;
 }
 
+.info {
+    margin: 2rem 0;
+}
+
+.info h2 {    
+    margin: 1.5rem 0;
+}
+
+.info p {    
+    margin: 1rem 0;
+}
 
 /* The Modal (background) */
 .modal {
@@ -151,7 +191,7 @@ button {
     margin: 1.4rem 0 2rem;
 }
 
-.bar .bar__list {
+.controlbar .controlbar__list {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -160,7 +200,7 @@ button {
     overflow: hidden;
 }
 
-.bar .bar__item {
+.controlbar .controlbar__item {
     margin: 1.5rem 0;
 }
 

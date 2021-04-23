@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Ikona // About</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% include 'includes/navbar.html' %}
+    
+        <div class="info">
+            <h2>About</h2>
+            <p>Ikona was created by Stavros Panakakis, Sophia Tsivoula, Christos Milios and Dimitris Pramateftakis as an assignment for their univeristy's python course.</p>
+            <p>Ikona is using python flask under the hood and it is hosted over on Heroku.</p>
+            <p>You can check out the code on github repository.</p>
+        </div>
+
+    </div>
+    <script src="{{ url_for('static', filename='js/start.js') }}"></script>
+{% endblock %}

@@ -36,6 +36,11 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+
 @app.route("/editor")
 def editor():
     session_id = request.args.get("session_id")
@@ -177,14 +182,14 @@ def feature_contrast():
     filename = request.args.get("filename")
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
-        
+
     data = request.get_json("contrastVal")
     value = int(data["contrastVal"])
 
     contrast(path, value)
-    
+
     return jsonify("OK"), 200
-  
+
 
 @app.route("/api/pixelize", methods=["POST"])
 def feature_pixelize():
@@ -216,10 +221,9 @@ def feature_edge_detection():
     return jsonify("OK"), 200
 
 
-  
 @app.route("/api/sepia")
 def feature_sepia():
-  
+
     session_id = request.args.get("session_id")
     filename = request.args.get("filename")
 
@@ -229,7 +233,7 @@ def feature_sepia():
 
     return jsonify("OK"), 200
 
-  
+
 @app.route("/api/threshold", methods=["POST"])
 def feature_threshold():
 
@@ -276,9 +280,9 @@ def brightness_func():
     value = int(data["bright_value"])
 
     brightness(path, value)
-    
+
     return jsonify("OK"), 200
-    
+
 
 @app.route("/api/emboss", methods=["POST"])
 def emboss_func():
@@ -286,9 +290,9 @@ def emboss_func():
     filename = request.args.get("filename")
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
-    
+
     data = request.json
-    
+
     sel_depth = int(data["embDepth"])
     scale = float(data["embScale"])
     offset = int(data["embOffset"])
