@@ -210,6 +210,19 @@ button {
     overflow: hidden;
 }
 
+.zoom {
+    padding: 0.5rem;
+    border: solid 2px var(--clr-dark);
+    border-radius: 7px;
+    margin: 0 0.3rem !important;
+    transition: all 0.15s ease-in-out;
+    /* cursor: pointer; */
+}
+
+.zoom:hover {
+    border: solid 2px var(--clr-light);
+}
+
 .controlbar .controlbar__item {
     margin: 1.5rem 0;
 }
