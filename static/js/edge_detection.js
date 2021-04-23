@@ -26,7 +26,7 @@ const edge_detection = (event) => {
     .then(response => {
         reloadImage()
     })
-    .error( err => 
+    .catch( err => 
         alert(err)
     )
 }

@@ -29,7 +29,7 @@ const resize = (event) => {
         document.getElementById("width").innerHTML = width
         document.getElementById("height").innerHTML = height
     })
-    .error( err => 
+    .catch( err => 
         alert(err)
     )
 }

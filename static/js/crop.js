@@ -30,7 +30,7 @@ const crop = (event) => {
         reloadImage()
         getResolution()
     })
-    .error( err => 
+    .catch( err => 
         alert(err)
     )
 }
