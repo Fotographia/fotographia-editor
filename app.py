@@ -16,6 +16,7 @@ from utils.threshold import threshold
 from utils.crop import crop
 from utils.brightness import brightness
 from utils.emboss import emboss
+from utils.add_text import add_text
 import json
 import os
 
@@ -177,14 +178,14 @@ def feature_contrast():
     filename = request.args.get("filename")
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
-        
+
     data = request.get_json("contrastVal")
     value = int(data["contrastVal"])
 
     contrast(path, value)
-    
+
     return jsonify("OK"), 200
-  
+
 
 @app.route("/api/pixelize", methods=["POST"])
 def feature_pixelize():
@@ -216,10 +217,9 @@ def feature_edge_detection():
     return jsonify("OK"), 200
 
 
-  
 @app.route("/api/sepia")
 def feature_sepia():
-  
+
     session_id = request.args.get("session_id")
     filename = request.args.get("filename")
 
@@ -229,7 +229,7 @@ def feature_sepia():
 
     return jsonify("OK"), 200
 
-  
+
 @app.route("/api/threshold", methods=["POST"])
 def feature_threshold():
 
@@ -276,9 +276,9 @@ def brightness_func():
     value = int(data["bright_value"])
 
     brightness(path, value)
-    
+
     return jsonify("OK"), 200
-    
+
 
 @app.route("/api/emboss", methods=["POST"])
 def emboss_func():
@@ -286,14 +286,38 @@ def emboss_func():
     filename = request.args.get("filename")
 
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
-    
+
     data = request.json
-    
+
     sel_depth = int(data["embDepth"])
     scale = float(data["embScale"])
     offset = int(data["embOffset"])
 
     emboss(path, sel_depth, scale, offset)
+
+    return jsonify("OK"), 200
+
+
+@app.route("/api/add-text", methods=["POST"])
+def add_text_func():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
+    data = request.json
+
+    ftext = data["instext"]
+    x = int(data["xpos"])
+    y = int(data["ypos"])
+    ffamily = data["selfamily"]
+    fstyle = data["selstyle"]
+    fcolor = data["pickcolor"]
+    print(fcolor)
+    fsize = int(data["selsize"])
+    falign = data["selalign"]
+
+    add_text(path, ftext, x, y, ffamily, fstyle, fcolor, fsize, falign)
 
     return jsonify("OK"), 200
 
