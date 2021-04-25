@@ -1,0 +1,55 @@
+<div>
+    <button onclick="show_add_text(event)">Add Text</button>
+    <form onsubmit="add_text(event)" id="add-text-form" style="display:none;">
+        <p><label>Insert text below:</label></p>
+        <p><input id="ins_text" type="text" placeholder="Use \n for multiple lines" required></p>
+        <p><label>Set text position</label></p>
+        <p><input id="x_pos" type="number" placeholder="x" style="width:5%;"required>
+           <input id="y_pos" type="number" placeholder="y" style="width:5%;"required></p>
+        <p><select id="sel_family" required>
+                <option >Select font</option>
+                <option value="Alegreya">Alegreya</option>
+                <option value="Grandstander">Grandstander</option>
+                <option value="Montserrat">Montserrat</option>
+                <option value="OpenSans">OpenSans</option>
+                <option value="RobotoMono">RobotoMono</option>
+            </select>
+            <select id="sel_style" required>
+                <option >Select style</option>
+                <option value="Regular">Regular</option>
+                <option value="Bold">Bold</option>
+                <option value="Italic">Italic</option>
+                <option value="BoldItalic">BoldItalic</option>
+                <option value="SemiBold">SemiBold</option>
+                <option value="SemiBoldItalic">SemiItalic</option>
+            </select>
+        </p>
+        <p><select id="sel_size" required>
+                <option >Select size</option>
+                <option value="8">8</option>
+                <option value="12">12</option>
+                <option value="16">14</option>
+                <option value="20">18</option>
+                <option value="24">24</option>
+                <option value="32">32</option>
+                <option value="40">40</option>
+                <option value="48">48</option>
+                <option value="60">60</option>
+                <option value="72">72</option>
+                <option value="96">96</option>
+            </select>
+            <select id="sel_align" required>
+                <option >--Align text--</option>
+                <option value="left">Left</option>
+                <option value="right">Right</option>
+                <option value="center">Center</option>
+            </select>
+            <input type="color" id="pick_color" style="width:10%;">
+        </p>
+        <button type="submit">Apply</button>
+    </form>
+</div>
+<script>
+
+</script>
+
