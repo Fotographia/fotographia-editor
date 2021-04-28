@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    <title>ikona // Editor</title>
+    <title>Fotographia · Editor</title>
 {% endblock %}
 
 
@@ -24,6 +24,34 @@
             </ul>
             <hr> <!-- White-line -->
         </nav>
+        <section class="toolbar">
+            <!-- <hr> White-line -->
+            <div class="toolbar__margin">
+                <button class="toolbar__accordion">Basic</button>
+                <div class="toolbar__panel">
+                    <ul>
+                        <li>Contrast</li>
+                        <li>Brightness</li>
+                    </ul>
+                </div>
+                <button class="toolbar__accordion">Correction</button>
+                <div class="toolbar__panel">
+                    <ul>
+                        <li>Thresshold</li>
+                        <li>Crop</li>
+                    </ul>
+                </div>
+                <button class="toolbar__accordion">Filters</button>
+                <div class="toolbar__panel">
+                    <ul>
+                        <li>Sepia</li>
+                        <li>Pixelize</li>
+                        <li>Edge Detection</li>
+                        <li>Emboss</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </div>
     <!-- END EDITOR HTML -->
 

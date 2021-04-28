@@ -241,6 +241,74 @@ button {
     width: 800px;
 } */
 
+.toolbar {
+    position: fixed;
+    top: 6.3rem;
+    left: 0;
+    width: 20rem;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.712);
+}
+
+.toolbar__accordion {
+    background-color: rgba(0, 0, 0, 0.712);
+    color: var(--clr-light);
+    cursor: pointer;
+    padding: 1.2rem;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    border: solid 3px var(--clr-light);
+    border-radius: 10px;
+    margin: 0.5rem 0;
+}
+
+.toolbar__margin {
+    margin: 2rem 2rem;
+}
+
+.active, .toolbar__accordion:hover {
+    /* background-color: var(--clr-accent); */
+    border: solid 3px var(--clr-accent);
+}
+
+.toolbar__accordion:after {
+    content: '\002B';
+    color: var(--clr-light);
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.toolbar__panel {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.toolbar__panel ul {
+    list-style: none;
+    margin: 1rem 0;
+}
+
+.toolbar__panel li {
+    padding: 0.5rem 1rem;
+}
+
+.toolbar__panel li:hover {
+    color: var(--clr-accent);
+    cursor: pointer;
+}
+
 @media only screen and (min-width: 912px) {
     
     .grid {

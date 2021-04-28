@@ -34,3 +34,19 @@ zoomOutButton.addEventListener('click', (e) => {
     e.preventDefault()
     pz.smoothZoom(centerX, centerY, 0.8)
 })
+
+// Toolbar menu
+const acc = document.getElementsByClassName("toolbar__accordion");
+let i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    const panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
