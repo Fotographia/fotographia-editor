@@ -76,6 +76,18 @@ button {
     transition: all 0.2s ease-in-out;
 }
 
+.btn--exit {
+    padding: 1rem 1.3rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 6.12rem;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    border-right: 2px solid var(--clr-light);
+}
+
 .btn:hover{
     box-shadow: 0px 2px 15px #fd4775b7;
 }
@@ -200,6 +212,8 @@ button {
     position: absolute;
     background-color: var(--clr-dark);
 }
+
+
 
 .controlbar__list {
     display: flex;
