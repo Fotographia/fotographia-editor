@@ -16,6 +16,7 @@ from utils.threshold import threshold
 from utils.crop import crop
 from utils.brightness import brightness
 from utils.emboss import emboss
+from utils.smooth import smooth
 from utils.sharpen import sharpen
 import json
 import os
@@ -298,6 +299,22 @@ def emboss_func():
     return jsonify("OK"), 200
 
 
+@app.route("/api/smooth", methods=["POST"])
+def smooth_func():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
+    data = request.json
+
+    value = int(data["smooth_val"])
+
+    smooth(path, value)
+
+    return jsonify("OK"), 200
+
+
 @app.route("/api/sharpen", methods=["POST"])
 def sharpen_func():
     session_id = request.args.get("session_id")
@@ -306,7 +323,6 @@ def sharpen_func():
     path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
 
     data = request.json
-
     value = int(data["sharpen_val"])
 
     sharpen(path, value)
