@@ -16,6 +16,7 @@ from utils.threshold import threshold
 from utils.crop import crop
 from utils.brightness import brightness
 from utils.emboss import emboss
+from utils.water_color import water_color
 from utils.add_text import add_text
 from utils.sketching import sketching
 from utils.smooth import smooth
@@ -297,6 +298,22 @@ def emboss_func():
     offset = int(data["embOffset"])
 
     emboss(path, sel_depth, scale, offset)
+
+    return jsonify("OK"), 200
+
+
+@app.route("/api/water-color", methods=["POST"])
+def watercolor_func():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
+    data = request.json
+
+    wc_value = float(data["watercolor_val"])
+
+    water_color(path, wc_value)
 
     return jsonify("OK"), 200
 
