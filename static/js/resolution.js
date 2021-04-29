@@ -10,7 +10,7 @@ const getResolution = () => {
         const height = document.getElementById("height")
         height.innerHTML = data.height
     })
-    .error( err => 
+    .catch( err => 
         alert(err)
     )
 

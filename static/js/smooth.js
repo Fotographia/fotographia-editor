@@ -1,6 +1,6 @@
-const show_gamma_correction = (event) => {
+const show_smooth = (event) => {
     event.preventDefault()
-    const form = document.getElementById("gamma-form")
+    const form = document.getElementById("smooth-form")
 
     if (form.style.display === "none") {
         form.style.display = "block"
@@ -10,17 +10,19 @@ const show_gamma_correction = (event) => {
 }
 
 
-const gamma_correction = (event) => {
+const smooth = (event) => {
     event.preventDefault()
-
-    const gamma_value = document.getElementById("gamma_value").value
-    const body = JSON.stringify({gamma_value})
-
     const queryString = window.location.search
-    fetch(`/api/gamma-correction${queryString}`,{
+    
+    var smooth_val = document.getElementById("smooth_value").value
+    const body = JSON.stringify({smooth_val})
+    
+    fetch(`/api/smooth${queryString}`, {
         method: "POST",
         body,
-        headers:{'content-type': 'application/json'}
+        headers:{
+            'Content-type': 'application/json'
+        },
     })
     .then(response => {
         reloadImage()

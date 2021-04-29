@@ -8,7 +8,11 @@
     <nav class="bar">
         <ul class="container--editor bar__list">
             <li class="bar__item project-name">This is hardcoded.png</li>
-            <li class="bar__item"><button id="btn-export" class="btn">Export</button></li>
+            <li class="bar__item"><button id="btn-export" class="btn">
+                <a href="{{ url_for('static', filename=filename) }}" id="export_button" download="Ikona_editor{{ url_for('static', filename=filename) }}" >
+                    Export
+                </a>
+            </button></li>
         </ul>
     </nav>
     <hr> <!-- White-line -->
@@ -34,6 +38,13 @@
     {% include 'includes/brightness.html' %}
     {% include 'includes/emboss.html' %}
     {% include 'includes/water_color.html' %}
+    {% include 'includes/add_text.html' %}
+    {% include 'includes/sketching.html' %}
+    {% include 'includes/smooth.html' %}
+    {% include 'includes/sharpen.html' %}
+
+    <script src="{{ url_for('static', filename='js/export-btn.js') }}"></script>
+
 
     <script src="{{ url_for('static', filename='js/blur.js') }}"></script>
     <script src="{{ url_for('static', filename='js/editor.js') }}"></script>
@@ -54,5 +65,9 @@
     <script src="{{ url_for('static', filename='js/brightness.js') }}"></script>
     <script src="{{ url_for('static', filename='js/emboss.js') }}"></script>
     <script src="{{ url_for('static', filename='js/water_color.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/add_text.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/sketching.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/smooth.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/sharpen.js') }}"></script>
 
 {% endblock %}
