@@ -16,6 +16,7 @@ from utils.threshold import threshold
 from utils.crop import crop
 from utils.brightness import brightness
 from utils.emboss import emboss
+from utils.add_text import add_text
 from utils.sketching import sketching
 from utils.smooth import smooth
 from utils.sharpen import sharpen
@@ -296,6 +297,29 @@ def emboss_func():
     offset = int(data["embOffset"])
 
     emboss(path, sel_depth, scale, offset)
+
+    return jsonify("OK"), 200
+
+
+@app.route("/api/add-text", methods=["POST"])
+def add_text_func():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
+    data = request.json
+
+    ftext = data["instext"]
+    x = int(data["xpos"])
+    y = int(data["ypos"])
+    ffamily = data["selfamily"]
+    fstyle = data["selstyle"]
+    fcolor = data["pickcolor"]
+    fsize = int(data["selsize"])
+    falign = data["selalign"]
+
+    add_text(path, ftext, x, y, ffamily, fstyle, fcolor, fsize, falign)
 
     return jsonify("OK"), 200
 
