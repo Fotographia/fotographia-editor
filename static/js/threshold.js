@@ -7,6 +7,18 @@ const showThreshold = (event) => {
     } else {
         form.style.display = "none"
     }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == form) {
+            form.style.display = "none";
+        }
+    } 
+    const span = document.getElementById("threshold-close")
+    span.onclick = function() {
+      form.style.display = "none";
+    }
+
+
 }
 
 
