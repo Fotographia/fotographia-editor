@@ -1,0 +1,16 @@
+<li onclick="showThreshold(event)">Threshold</li>
+<form class="modal" onsubmit="threshold(event)" id="threshold-form" style="display:none">
+    <div class="modal-content">
+        <div class="modal-menu-align">
+            <div>Threshold</div>
+            <span id="threshold-close" class="close">&times;</span>
+        </div>
+    <select class="selector" name="threshold_select" id="threshold_select">
+        <option value="0">Normal threshold</option>
+        <option value="1">Adaptive mean threshold</option>
+        <option value="2">Gaussian threshold</option>
+    </select>
+    <button class="btn-sm" type="submit">Apply</button>
+</div>
+</form>
+

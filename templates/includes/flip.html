@@ -1,0 +1,15 @@
+<li onclick="showFlip(event)">Flip</li>
+<form class="modal" onsubmit="flip(event)" id="flip-form" style="display:none">
+    <div class="modal-content">
+        <div class="modal-menu-align">
+            <div>Flip</div>
+            <span id="flip-close" class="close">&times;</span>
+        </div>
+ 
+    <select class="selector" name="flip-select" id="flip-select">
+        <option value="0">Vertically</option>
+        <option value="1">Horizontally</option>
+    </select>
+    <button class="btn-sm" type="submit">Apply</button>
+</div>
+</form>

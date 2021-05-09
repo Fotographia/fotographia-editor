@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Fotographia · Home</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% include 'includes/navbar.html' %}
+    
+        <div class="grid">
+            <div class="headline">
+                <h1 class="headline__big">Welcome to Fotographia</h1>
+                <p class="headline__small">A simple yet feature-full open source image editor</p>
+                <button id="start-btn" class="btn"><a href="#">Start here</a></button>
+            </div>
+            <div class="image">
+                {% include 'includes/svg.html' %}
+            </div>
+        </div>
+
+        <!-- The Modal -->
+        <div id="start-modal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <div class="modal-menu-align">
+                <h3>Choose an image</h3>
+                <span class="close">&times;</span>
+            </div>
+            <form class="start-form" method="POST">
+                <input type="file" name="file" id="start-upload"/>
+            </form>
+            <div id="start-upload-error"></div>
+            <button id="start-upload-btn" class="btn"><a href="#">Upload</a></button>
+          </div>
+
+        </div> 
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="{{ url_for('static', filename='js/start.js') }}"></script>
+{% endblock %}
