@@ -16,6 +16,11 @@ from utils.threshold import threshold
 from utils.crop import crop
 from utils.brightness import brightness
 from utils.emboss import emboss
+from utils.water_color import water_color
+from utils.add_text import add_text
+from utils.sketching import sketching
+from utils.smooth import smooth
+from utils.sharpen import sharpen
 import json
 import os
 
@@ -307,6 +312,89 @@ def emboss_func():
     return jsonify("OK"), 200
 
 
-# Main
-if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=PORT)
+@app.route("/api/water-color", methods=["POST"])
+def watercolor_func():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
+    data = request.json
+
+    wc_value = float(data["watercolor_val"])
+
+    water_color(path, wc_value)
+
+    return jsonify("OK"), 200
+
+
+@app.route("/api/add-text", methods=["POST"])
+def add_text_func():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
+    data = request.json
+
+    ftext = data["instext"]
+    x = int(data["xpos"])
+    y = int(data["ypos"])
+    ffamily = data["selfamily"]
+    fstyle = data["selstyle"]
+    fcolor = data["pickcolor"]
+    fsize = int(data["selsize"])
+    falign = data["selalign"]
+
+    add_text(path, ftext, x, y, ffamily, fstyle, fcolor, fsize, falign)
+
+    return jsonify("OK"), 200
+
+
+@app.route("/api/sketch", methods=["POST"])
+def sketch_func():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
+    data = request.json
+
+    mode = int(data["skmode"])
+    sr = float(data["skdensity"])
+    sf = float(data["skshading"])
+
+    sketching(path, mode, sr, sf)
+
+    return jsonify("OK"), 200
+
+
+@app.route("/api/smooth", methods=["POST"])
+def smooth_func():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
+    data = request.json
+
+    value = int(data["smooth_val"])
+
+    smooth(path, value)
+
+    return jsonify("OK"), 200
+
+
+@app.route("/api/sharpen", methods=["POST"])
+def sharpen_func():
+    session_id = request.args.get("session_id")
+    filename = request.args.get("filename")
+
+    path = app.config["UPLOAD_FOLDER"] + "/" + session_id + "/" + filename
+
+    data = request.json
+    value = int(data["sharpen_val"])
+
+    sharpen(path, value)
+
+    return jsonify("OK"), 200

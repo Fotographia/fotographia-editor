@@ -6,12 +6,26 @@
 
 
 {% block content %}
+<<<<<<< HEAD
     <!-- Needs to be on top -->
     <div class='zoomable'>
         <img id="img" class="panzoom" src="{{ url_for('static', filename=filename) }}"/>
     </div>
 
     <!-- EDITOR HTML -->
+=======
+    <nav class="bar">
+        <ul class="container--editor bar__list">
+            <li class="bar__item project-name">This is hardcoded.png</li>
+            <li class="bar__item"><button id="btn-export" class="btn">
+                <a href="{{ url_for('static', filename=filename) }}" id="export_button" download="Ikona_editor{{ url_for('static', filename=filename) }}" >
+                    Export
+                </a>
+            </button></li>
+        </ul>
+    </nav>
+    <hr> <!-- White-line -->
+>>>>>>> dev
     <div class="editor">
         <nav class="controlbar">
             <a class="btn--exit" href="/"><i class="fas fa-home"></i></a>
@@ -60,4 +74,25 @@
     <script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
     <script src="{{ url_for('static', filename='js/editor.js') }}"></script>
     <script src="{{ url_for('static', filename='js/helpers.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/resolution.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/resize.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/grayscale.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/gamma_correction.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/negate.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/rotate.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/flip.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/sepia.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/contrast.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pixelize.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/edge_detection.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/threshold.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/crop.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/brightness.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/emboss.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/water_color.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/add_text.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/sketching.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/smooth.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/sharpen.js') }}"></script>
+
 {% endblock %}
