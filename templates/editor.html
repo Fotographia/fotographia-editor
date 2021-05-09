@@ -22,7 +22,11 @@
                     <li class="controlbar__item zoom"><a href="#" id="zoomIn"><i class="fas fa-search-plus"></i></a></li>
                 </ul>
                 <li class="controlbar__item">Resolution: <span id="width"></span>x<span id="height"></span></li>
-                <li class="controlbar__item"><button id="btn-export" class="btn">Export</button></li>
+                <li class="controlbar__item"><button id="btn-export" class="btn">
+                <a href="{{ url_for('static', filename=filename) }}" id="export_button" download="Ikona_editor{{ url_for('static', filename=filename) }}" >
+                    Export
+                </a>
+                </button></li>
             </ul>
             <hr> <!-- White-line -->
         </nav>
