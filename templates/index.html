@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    <title>Fotographia // Home</title>
+    <title>Fotographia · Home</title>
 {% endblock %}
 
 {% block content %}
     <div class="container">
+        {% include 'includes/navbar.html' %}
+    
         <div class="grid">
             <div class="headline">
                 <h1 class="headline__big">Welcome to Fotographia</h1>
-                <p class="headline__small">A simple yet scientific open source image editor</p>
+                <p class="headline__small">A simple yet feature-full open source image editor</p>
                 <button id="start-btn" class="btn"><a href="#">Start here</a></button>
             </div>
             <div class="image">
@@ -35,5 +37,7 @@
 
         </div> 
     </div>
+
+    <!-- SCRIPTS -->
     <script src="{{ url_for('static', filename='js/start.js') }}"></script>
 {% endblock %}

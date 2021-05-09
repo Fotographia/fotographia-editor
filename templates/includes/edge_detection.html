@@ -1,11 +1,15 @@
-<div>
-    <button onclick="showEdge(event)">Edge Detection</button>
-    <form onsubmit="edge_detection(event)" id="edge_detection-form" style="display:none">
-        <select name="edge_detection-select" id="edge_detection-select">
+<li onclick="showEdge(event)">Edge Detection</li>
+<form class="modal" onsubmit="edge_detection(event)" id="edge_detection-form" style="display:none">
+    <div class="modal-content">
+        <div class="modal-menu-align">
+            <div>Edge Detection</div>
+            <span id="edge-detection-close" class="close">&times;</span>
+        </div>
+        <select class="selector" name="edge_detection-select" id="edge_detection-select">
             <option value="0">Laplacian</option>
             <option value="1">Sobel X</option>
             <option value="2">Sobel Y</option>
         </select>
-        <button type="submit">Apply</button>
-    </form>
-</div>
+        <button class="btn-sm" type="submit">Apply</button>
+    </div>
+</form>

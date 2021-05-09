@@ -1,8 +1,12 @@
-<div>
-    <button onclick="showPixelize(event)">Pixelize</button>
-    <form onsubmit="pixelize(event)" id="pixel-form" style="display:none">
-        <label>Allowed values: 001-199</label>
-        <input id="pixels" name="pixels" placeholder="Insert number of pixels" pattern="^[01]?[0-9][0-9]?$" required>
-        <button type="submit">Apply</button>
-    </form>
+<li onclick="showPixelize(event)">Pixelize</li>
+<form class="modal" onsubmit="pixelize(event)" id="pixel-form" style="display:none">
+        <div class="modal-content">
+        <div class="modal-menu-align">
+            <div>Pixelize</div>
+            <span id="pixelize-close" class="close">&times;</span>
+        </div>
+    <label>Allowed values: 001-199</label>
+    <input class="selector" id="pixels" name="pixels" placeholder="Insert number of pixels" pattern="^[01]?[0-9][0-9]?$" required>
+    <button class="btn-sm" type="submit">Apply</button>
 </div>
+</form>

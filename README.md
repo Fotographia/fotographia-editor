@@ -1,3 +1,3 @@
-# Fotogràphia Editor
+# ikona Image Editor
 
 IN PROGRESS

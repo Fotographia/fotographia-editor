@@ -1,8 +1,13 @@
-<div>
-    <button onclick="show_gamma_correction(event)">Gamma Correction</button>
-    <form onsubmit="gamma_correction(event)" id="gamma-form" style="display:none">
-        <label>Allowed values: 0.1 - 1.9.</label>
-        <input id="gamma_value" name="gamma_value" placeholder="The expected format: 0.5" pattern="^[0-1]+\.[0-9]$" required>
-        <button type="submit">Gamma Correction</button>
-    </form>
+<li onclick="show_gamma_correction(event)">Gamma Correction</li>
+<form class="modal" onsubmit="gamma_correction(event)" id="gamma-form" style="display:none">
+        <div class="modal-content">
+        <div class="modal-menu-align">
+            <div>Gamma correction</div>
+            <span id="gamma-correction-close" class="close">&times;</span>
+        </div>
+ 
+    <label>Allowed values: 0.1 - 1.9.</label>
+    <input class="selector" id="gamma_value" name="gamma_value" placeholder="The expected format: 0.5" pattern="^[0-1]+\.[0-9]$" required>
+    <button class="btn-sm" type="submit">Gamma Correction</button>
 </div>
+</form>

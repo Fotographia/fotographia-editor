@@ -1,14 +1,18 @@
-<div>
-    <button onclick="show_emboss(event)">Emboss</button>
-    <form onsubmit="emboss(event)" id="emboss-form" style="display:none">
-        <select name="emboss_depth" id="emboss_depth">
-            <option value="0">Normal depth</option>
-            <option value="1">Extra depth</option>
-        </select>
-        <p><label>Scale values: 0.1 - 1.9.</label>
-        <input id="emboss_scale" name="emboss_scale" placeholder="Expected format: 0.5" pattern="^[0-1]+\.[0-9]$" required></p>
-        <p><label>Offset values: 90 - 170</label>
-        <input id="emboss_offset" name="emboss_offset" placeholder="Expected format: 090" pattern="^[0-1]?[0-7,9][0-9]?$"required></p>
-        <button type="submit">Apply</button>
-    </form>
-</div>
+<li onclick="show_emboss(event)">Emboss</li>
+<form class="modal" onsubmit="emboss(event)" id="emboss-form" style="display:none">
+    <div class="modal-content">
+        <div class="modal-menu-align">
+            <div>Emboss</div>
+            <span id="emboss-close" class="close">&times;</span>
+        </div>
+    <select class="selector" name="emboss_depth" id="emboss_depth">
+        <option value="0">Normal depth</option>
+        <option value="1">Extra depth</option>
+    </select>
+    <label>Scale values: 0.1 - 1.9.</label>
+    <input class="selector" id="emboss_scale" name="emboss_scale" placeholder="Expected format: 0.5" pattern="^[0-1]+\.[0-9]$" required>
+    <label>Offset values: 90 - 170</label>
+    <input class="selector" id="emboss_offset" name="emboss_offset" placeholder="Expected format: 090" pattern="^[0-1]?[0-7,9][0-9]?$"required>
+    <button class="btn-sm" type="submit">Apply</button>
+    </div>
+</form>

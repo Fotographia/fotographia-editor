@@ -1,10 +1,15 @@
-<div>
-    <button onclick="show_sharpen(event)">Sharpen</button>
-    <form onsubmit="sharpen(event)" id="sharpen-form" style="display:none">
-        <select name="sharpen_value" id="sharpen_value">
-            <option value="0">Normal Sharp</option>
-            <option value="1">More Sharp</option>
-        </select>
-        <button type="submit">Apply</button>
-    </form>
-</div>
+<li onclick="show_sharpen(event)">Sharpen</li>
+<form class="modal" onsubmit="sharpen(event)" id="sharpen-form" style="display:none">
+    <div class="modal-content">
+    <div class="modal-menu-align">
+        <div>Sharpen</div>
+        <span id="sharpen-close" class="close">&times;</span>
+    </div>
+ 
+    <select class="selector" name="sharpen_value" id="sharpen_value">
+        <option value="0">Normal Sharp</option>
+        <option value="1">More Sharp</option>
+    </select>
+    <button class="btn-sm" type="submit">Apply</button>
+    </div>
+</form>
