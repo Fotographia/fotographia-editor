@@ -1,14 +1,19 @@
-<div>
-    <button onclick="show_sketch(event)">Sketcing</button>
-    <form onsubmit="sketch(event)" id="sketch-form" style="display:none;">
-        <select name="sketch_mode" id="sketch_mode">
-            <option value="0">Gray Sketch</option>
-            <option value="1">Color Sketch</option>
-        </select>
-        <p><label>Density: 0.04 - 0.14</label>
-        <input id="sketch_density" name="sketch_density" placeholder="Expected format: 0.01" type="number" min="0.04" max="0.14" step="0.01" required></p>
-        <p><label>Shading: 0.03 - 0.15</label>
-        <input id="sketch_shading" name="sketch_shading" placeholder="Expected format: 0.01" type="number" min="0.03" max="0.15" step="0.01"required></p>
-        <button type="submit">Apply changes</button>
-    </form>
-</div>
+<li onclick="show_sketch(event)">Sketcing</li>
+<form class="modal" onsubmit="sketch(event)" id="sketch-form" style="display:none;">
+    <div class="modal-content">
+    <div class="modal-menu-align">
+        <div>Sketching</div>
+        <span id="close" class="close">&times;</span>
+    </div>
+ 
+    <select class="selector" name="sketch_mode" id="sketch_mode">
+        <option value="0">Gray Sketch</option>
+        <option value="1">Color Sketch</option>
+    </select>
+    <label>Density: 0.04 - 0.14</label>
+    <input class="selector" id="sketch_density" name="sketch_density" placeholder="Expected format: 0.01" type="number" min="0.04" max="0.14" step="0.01" required>
+    <label>Shading: 0.03 - 0.15</label>
+    <input class="selector" id="sketch_shading" name="sketch_shading" placeholder="Expected format: 0.01" type="number" min="0.03" max="0.15" step="0.01"required>
+    <button class="btn-sm" type="submit">Apply changes</button>
+    </div>
+</form>

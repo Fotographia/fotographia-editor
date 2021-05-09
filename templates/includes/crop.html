@@ -1,15 +1,20 @@
-<div>
-    <button onclick="show_crop(event)">Crop</button>
-    <form onsubmit="crop(event)" id="crop-form" style="display:none;">
-        <p><label>Enter crop window size and offset</label></p>
-        <p><label>If no offset given, default value used</label></p>
-        <p><input id="X_value" onchange="getMaxX()" placeholder="crop width" type="number" required></p>
-        <p><input id="Y_value" onchange="getMaxY()" placeholder="crop height" type="number" required></p>
-        <p><input id="xOffset_value" type="number" value="0"></p>
-        <p><input id="yOffset_value" type="number" value="0"></p>
-        <button type="submit">Crop selection</button>
-    </form>
-</div>
+<li onclick="show_crop(event)">Crop</li>
+<form class="modal" onsubmit="crop(event)" id="crop-form" style="display:none;">
+    <div class="modal-content">
+        <div class="modal-menu-align">
+            <div>Crop</div>
+            <span id="close" class="close">&times;</span>
+        </div>
+
+    <label>Enter crop window size and offset</label><br/>
+    <small>If no offset given, default value used</small>
+    <input class="selector" id="X_value" onchange="getMaxX()" placeholder="crop width" type="number" required>
+    <input class="selector" id="Y_value" onchange="getMaxY()" placeholder="crop height" type="number" required>
+    <input class="selector" id="xOffset_value" type="number" value="0"></p>
+    <input class="selector" id="yOffset_value" type="number" value="0"></p>
+    <button class="btn-sm" type="submit">Crop selection</button>
+    </div>
+</form>
 <script>
     function getMaxX() {
         const x = parseInt(document.getElementById("width").innerText);

@@ -1,11 +1,13 @@
-<div>
-    <button onclick="showResize(event)">Resize</button>
-    <form onsubmit="resize(event)" id="resize-form" style="display:none">
-        <input id="resize-width" placeholder="width" type="number" required>
-        <input id="resize-height" placeholder="height" type="number" required>
-        <button type="submit">Resize</button>
-    </form>
-</div>
-<script>
-
-</script>
+<li onclick="showResize(event)">Resize</li>
+<form class="modal" onsubmit="resize(event)" id="resize-form" style="display:none">
+    <div class="modal-content">
+        <div class="modal-menu-align">
+            <div>Brightness</div>
+            <span id="close" class="close">&times;</span>
+        </div>
+ 
+       <input class="selector" id="resize-width" placeholder="width" type="number" required>
+       <input class="selector" id="resize-height" placeholder="height" type="number" required>
+       <button class="btn-sm" type="submit">Resize</button>
+    </div>
+</form>

@@ -6,26 +6,12 @@
 
 
 {% block content %}
-<<<<<<< HEAD
     <!-- Needs to be on top -->
     <div class='zoomable'>
         <img id="img" class="panzoom" src="{{ url_for('static', filename=filename) }}"/>
     </div>
 
     <!-- EDITOR HTML -->
-=======
-    <nav class="bar">
-        <ul class="container--editor bar__list">
-            <li class="bar__item project-name">This is hardcoded.png</li>
-            <li class="bar__item"><button id="btn-export" class="btn">
-                <a href="{{ url_for('static', filename=filename) }}" id="export_button" download="Ikona_editor{{ url_for('static', filename=filename) }}" >
-                    Export
-                </a>
-            </button></li>
-        </ul>
-    </nav>
-    <hr> <!-- White-line -->
->>>>>>> dev
     <div class="editor">
         <nav class="controlbar">
             <a class="btn--exit" href="/"><i class="fas fa-home"></i></a>
@@ -45,24 +31,35 @@
                 <button class="toolbar__accordion">Basic</button>
                 <div class="toolbar__panel">
                     <ul>
-                        <li>Contrast</li>
-                        <li>Brightness</li>
+                        {% include 'includes/contrast.html' %}
+                        {% include 'includes/brightness.html' %}
+                        {% include 'includes/add_text.html' %}
                     </ul>
                 </div>
                 <button class="toolbar__accordion">Correction</button>
                 <div class="toolbar__panel">
                     <ul>
-                        <li>Thresshold</li>
-                        <li>Crop</li>
+                        {% include 'includes/crop.html' %}
+                        {% include 'includes/resize.html' %}
+                        {% include 'includes/flip.html' %}
                     </ul>
                 </div>
                 <button class="toolbar__accordion">Filters</button>
                 <div class="toolbar__panel">
                     <ul>
-                        <li>Sepia</li>
-                        <li>Pixelize</li>
-                        <li>Edge Detection</li>
-                        <li>Emboss</li>
+                        {% include 'includes/sharpen.html' %}
+                        {% include 'includes/sketching.html' %}
+                        {% include 'includes/smooth.html' %}
+                        {% include 'includes/water_color.html' %}
+                        {% include 'includes/threshold.html' %}
+                        {% include 'includes/sepia.html' %}
+                        {% include 'includes/pixelize.html' %}
+                        {% include 'includes/edge_detection.html' %}
+                        {% include 'includes/emboss.html' %}
+                        {% include 'includes/blur.html' %}
+                        {% include 'includes/gamma_correction.html' %}
+                        {% include 'includes/grayscale.html' %}
+                        {% include 'includes/negate.html' %}
                     </ul>
                 </div>
             </div>
@@ -72,6 +69,7 @@
 
     <!-- SCRIPTS -->
     <script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
+    <script src="{{ url_for('static', filename='js/blur.js') }}"></script>
     <script src="{{ url_for('static', filename='js/editor.js') }}"></script>
     <script src="{{ url_for('static', filename='js/helpers.js') }}"></script>
     <script src="{{ url_for('static', filename='js/resolution.js') }}"></script>
@@ -94,5 +92,4 @@
     <script src="{{ url_for('static', filename='js/sketching.js') }}"></script>
     <script src="{{ url_for('static', filename='js/smooth.js') }}"></script>
     <script src="{{ url_for('static', filename='js/sharpen.js') }}"></script>
-
 {% endblock %}
